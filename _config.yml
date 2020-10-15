@@ -1,16 +1,16 @@
-site: Sidey
-url: #yoururl
-title: Sidey
-description: Simple and minimalistic jekyll blogging theme.
+site: Not a site
+url: blog.mediocreone.com
+title: Just a blog
+description: Piece of my mumbling.
 twitter:
-  username: #yourusername
+  username: mediocre_one
   card: summary
-  creator: #yourusername
+  creator: mediocre_one
 author:
-  twitter: #yourusername
-  name: #yourusername
+  twitter: mediocre_one
+  name: mediocre_one
   avatar:
-  email: #youremail
+  email: one@mediocreone.com
   url: #yoururl
 permalink: pretty
 

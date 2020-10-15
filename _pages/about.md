@@ -3,26 +3,18 @@ layout: page
 title: About
 ---
 
-Sidey is a simple and minimalistic jekyll blogging theme.
+Mediocre 1 is a simple and minimalistic fellow.
 
 ### Features
-
-- Responsive design
-- Inline CSS
-- Anchor headings
-- Search
-- Tags & tag pages
-- Security headers (for Netlify hosting)
-- 404 page
-- Compressed CSS and HTML
-- 100/100 score on Lighthouse, Page Speed Insights & Webpagetest
-- Robots.txt
-- Atom & Json feeds
-- Sass
-- Seo optimized (Twitter cards, Facebook Open Graph, Schema.org)
-- Ultra fast (Only ~5kb of CSS)
-- Sidebar navigation
+- Lazy
+- Slow
+- Insecure
+- Absent-minded
 
 ### Screenshot
 
-![Screenshot](screenshot.png)
+<div style="max-width:854px">
+  <div style="position:relative;height:0;padding-bottom:56.25%">
+    <iframe src="https://embed.ted.com/talks/ze_frank_nerdcore_comedy" width="854" height="480" style="position:absolute;left:0;top:0;width:100%;height:100%" frameborder="0" scrolling="no" allowfullscreen></iframe>
+  </div>
+</div>
