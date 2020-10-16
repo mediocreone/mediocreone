@@ -14,7 +14,7 @@ author:
   url: #yoururl
 permalink: pretty
 
-baseurl: "blog.mediocreone.com"
+baseurl: ""
 
 highlighter: rouge
 
