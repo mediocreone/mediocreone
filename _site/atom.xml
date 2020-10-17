@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Just a blog</title>
- <link href="http://0.0.0.0:4000/atom.xml" rel="self"/>
- <link href="http://0.0.0.0:4000/"/>
- <updated>2020-10-15T11:31:47+00:00</updated>
- <id>http://0.0.0.0:4000</id>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <link href="http://localhost:4000/"/>
+ <updated>2020-10-17T10:40:29+08:00</updated>
+ <id>http://localhost:4000</id>
  <author>
    <name>mediocre_one</name>
    <email>one@mediocreone.com</email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>Why this blog exists?</title>
-   <link href="http://0.0.0.0:4000/2020/10/15/why-this-blog-exists"/>
-   <updated>2020-10-15T00:00:00+00:00</updated>
-   <id>http://0.0.0.0:4000/2020/10/15/why-this-blog-exists</id>
+   <link href="http://localhost:4000/2020/10/15/why-this-blog-exists"/>
+   <updated>2020-10-15T00:00:00+08:00</updated>
+   <id>http://localhost:4000/2020/10/15/why-this-blog-exists</id>
    <content type="html">&lt;p&gt;Well, some of my today’s work has inspired by &lt;a href=&quot;https://fuckyousunday.com&quot;&gt;Lucas Kostka&lt;/a&gt;.&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Purchase a cheap domain&lt;/li&gt;
