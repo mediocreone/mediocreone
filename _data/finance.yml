@@ -1,0 +1,15 @@
+actives:
+  - name: home
+    value: 18000
+  - name: device(s)
+    value: 1000
+  - name: stock(s)
+    value: 2000
+  - name: cash
+    value: 800
+
+passives:
+  - name: debt
+    value: 3500
+  - name: loan
+    value: 1400

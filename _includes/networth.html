@@ -1,0 +1,20 @@
+<div class="networth">
+  <dl>
+    {% assign balance = 0 %}
+    <dt><u>Assets</u></dt>
+    {% for item in site.data.finance.actives %}
+    <dd>- {{ item.name }} <span class="amount">{{ item.value | divided_by: 1000.0 }}k</span></dd>
+    {% assign balance = balance | plus: item.value %}
+    {% endfor %}
+    <dt><u>Liabilities</u></dt>
+    {% for item in site.data.finance.passives %}
+    <dd>- {{ item.name }} <span class="amount">{{ item.value | divided_by: 1000.0 }}k</span></dd>
+    {% assign balance = balance | minus: item.value %}
+    {% endfor %}
+  </dl>
+  <div class="total">
+    <b><span>My Net: {{ balance | divided_by: 1000.0 }}k</span></b>
+    </br>
+    <small>02-05-2021</small>
+  </div>
+</div>
