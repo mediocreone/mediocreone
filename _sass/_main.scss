@@ -213,6 +213,12 @@ figcaption {
   font-size: smaller;
 }
 
+
+.right1{
+  float: right;
+  margin-right: 1em;
+}
+
 .networth {
   margin-top: 40px;
   // border: 1px solid black;
@@ -222,9 +228,8 @@ figcaption {
     margin-right: 2rem;
   }
 
-  dd span, .total span, .total small {
-    float: right;
-    margin-right: 1em;
+  dd span, .total span, .total small, .expiration .note {
+    @extend .right1;
   }
 
   .total {
@@ -233,4 +238,6 @@ figcaption {
   }
 }
 
-
+.expiration {
+  margin-top: 30px;
+}
