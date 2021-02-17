@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: mediocreone.com/sitemap.xml

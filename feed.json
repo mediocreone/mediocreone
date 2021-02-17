@@ -1,0 +1,44 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Just a blog",
+    "home_page_url": "mediocreone.com/",
+    "feed_url": "mediocreone.com/feed.json",
+    "description": "Piece of my mumbling.",
+    "icon": "mediocreone.com/apple-touch-icon.png",
+    "favicon": "mediocreone.com/favicon.ico",
+    "expired": false,
+    
+    "author":  {
+        "name": "mediocre_one",
+        "url": null,
+        "avatar": null
+    },
+    
+"items": [
+    
+        {
+            "id": "mediocreone.com/2020/10/15/why-this-blog-exists",
+            "title": "Why this blog exists?",
+            "summary": "Reason for blogging",
+            "content_text": "Well, some of my today’s work has inspired by Lucas Kostka.  Purchase a cheap domain  Find a blog theme - All the credit goes to Ronalds Vilciņš  Google “reason for blogging” - landed on this long post which I am not likely to read through  Write this first mumbo jumbo  Put it up on the internet as fast as I could",
+            "content_html": "<p>Well, some of my today’s work has inspired by <a href=\"https://fuckyousunday.com\">Lucas Kostka</a>.</p><ul>  <li>Purchase a cheap domain</li>  <li>Find a blog theme - All the credit goes to <a href=\"https://github.com/ronv/sidey\">Ronalds Vilciņš</a></li>  <li>Google “reason for blogging” - landed on <a href=\"https://bloggingwizard.com/reasons-to-start-a-blog\">this long post</a> which I am not likely to read through</li>  <li>Write this first mumbo jumbo</li>  <li>Put it up on the internet as fast as I could</li></ul>",
+            "url": "mediocreone.com/2020/10/15/why-this-blog-exists",
+            
+            
+            
+            
+            
+            "date_published": "2020-10-15T00:00:00+00:00",
+            "date_modified": "2020-10-15T00:00:00+00:00",
+            
+                "author":  {
+                "name": "mediocre_one",
+                "url": null,
+                "avatar": null
+                }
+                
+            
+        }
+    
+    ]
+}
