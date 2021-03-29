@@ -1,0 +1,32 @@
+id_ed25519.pub
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEnpZMOpI29kra1VLybw+iMSXyAVxh0q146WxMVrX7ZT hermit@local
+
+sshd enable 
+
+$ find /home -group hermit
+/home/hermit
+/home/hermit/.profile
+/home/hermit/.bashrc
+/home/hermit/.bash_logout
+/home/hermit/hi
+/home/hermit/flag.txt
+/home/hermit/.ssh
+/home/hermit/.ssh/id_ed25519
+/home/hermit/.ssh/id_ed25519.pub
+/home/hermit/.ssh/known_hosts
+/home/hermit/.ssh/id_rsa
+/home/hermit/.ssh/authorized_keys
+/home/hermit/.ssh/id_rsa.pub
+/home/hermit/.config
+/home/hermit/.config/procps
+/home/hermit/.DS_Store
+
+hosts
+search us-central1-a.c.umass-ctf-2021.internal. c.umass-ctf-2021.internal. google.internal.
+
+172.21.0.255     0x1         0x0         00:00:00:00:00:00     *        eth0
+172.21.0.3       0x1         0x0         00:00:00:00:00:00     *        eth0
+172.21.0.253     0x1         0x0         00:00:00:00:00:00     *        eth0
+172.21.0.1       0x1         0x2         02:42:19:6f:c6:de     *        eth0
+172.21.0.254     0x1         0x0         00:00:00:00:00:00     *        eth0
+

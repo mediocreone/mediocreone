@@ -2,6 +2,17 @@
   
     {
 
+      "title"    : "UMass CTF 2021 notes",
+      "url"      : "/2021/03/29/umass-ctf-2021",
+      "category" : "",
+      "tags"     : "CTF, PHP shell, python jail, QR recovery, memory forensics, linux priviledge escalation",
+      "date"     : "2021-03-29 00:00:00 +0000",
+      "description" : "UMass CTF 2021 notes"
+
+    } ,
+  
+    {
+
       "title"    : "Break the syntax",
       "url"      : "/2021/03/14/break-the-syntax",
       "category" : "",
