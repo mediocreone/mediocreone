@@ -2,11 +2,11 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>mediocreone.com/about</loc>
-<lastmod>2021-03-29T14:23:55+00:00</lastmod>
+<lastmod>2021-03-29T14:51:23+00:00</lastmod>
 </url>
 <url>
 <loc>mediocreone.com/search</loc>
-<lastmod>2021-03-29T14:23:55+00:00</lastmod>
+<lastmod>2021-03-29T14:51:23+00:00</lastmod>
 </url>
 <url>
 <loc>mediocreone.com/2020/10/15/why-this-blog-exists</loc>
@@ -51,7 +51,7 @@
 <loc>mediocreone.com/tag/memory%20forensics/</loc>
 </url>
 <url>
-<loc>mediocreone.com/tag/linux%20priviledge%20escalation/</loc>
+<loc>mediocreone.com/tag/Linux%20privilege%20escalation/</loc>
 </url>
 <url>
 <loc>mediocreone.com/assets/img/umass/fails/chicken.pdf</loc>

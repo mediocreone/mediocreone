@@ -1,4 +1,4 @@
-Mediocre 1 is a simple and minimalistic fellow.
+Mediocre One is a simple and minimalistic fellow.
 
 ### Features
 - Lazy
