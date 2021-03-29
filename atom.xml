@@ -4,7 +4,7 @@
  <title>Just a blog</title>
  <link href="mediocreone.com/atom.xml" rel="self"/>
  <link href="mediocreone.com/"/>
- <updated>2021-03-29T14:51:23+00:00</updated>
+ <updated>2021-03-29T15:21:13+00:00</updated>
  <id>mediocreone.com</id>
  <author>
    <name>mediocre_one</name>
@@ -458,8 +458,8 @@ And most importantly, I realized that somehow I could use the &lt;code class=&qu
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;&lt;img src=&quot;/assets/img/umass/hermit2/whoami.png&quot; alt=&quot;whoami&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;To check the hermit’s default ssh folder hoping to find a usable key pair. (I tried that weird looking &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;id_ed25519&lt;/code&gt; key but it was password protected.)&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; /home/hermit/.ssh
+&lt;p&gt;To check the hermit’s default ssh folder to find a usable key pair. (I tried that weird looking &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;id_ed25519&lt;/code&gt; key but it was password protected.)&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; /home/hermit/.ssh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;&lt;img src=&quot;/assets/img/umass/hermit2/ssh_keys.png&quot; alt=&quot;ssh keys&quot; /&gt;&lt;/p&gt;
 
