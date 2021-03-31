@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Just a blog</title>
- <link href="http://0.0.0.0:4000/atom.xml" rel="self"/>
- <link href="http://0.0.0.0:4000/"/>
- <updated>2021-03-31T04:11:34+00:00</updated>
- <id>http://0.0.0.0:4000</id>
+ <link href="mediocreone.com/atom.xml" rel="self"/>
+ <link href="mediocreone.com/"/>
+ <updated>2021-03-31T04:18:38+00:00</updated>
+ <id>mediocreone.com</id>
  <author>
    <name>mediocre_one</name>
    <email>one@mediocreone.com</email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>UMass CTF 2021 notes</title>
-   <link href="http://0.0.0.0:4000/2021/03/29/umass-ctf-2021"/>
+   <link href="mediocreone.com/2021/03/29/umass-ctf-2021"/>
    <updated>2021-03-29T00:00:00+00:00</updated>
-   <id>http://0.0.0.0:4000/2021/03/29/umass-ctf-2021</id>
+   <id>mediocreone.com/2021/03/29/umass-ctf-2021</id>
    <content type="html">&lt;p&gt;The UMass CTF 2021 is targeted at undergraduate students. The challenges are supposed to be friendly to an amateur like me. I did manage to solve some of them with a lot of effort and learned few tricks along the way.&lt;/p&gt;
 
 &lt;h3 id=&quot;1-hermit-part-1-web&quot;&gt;1. &lt;a id=&quot;hermit&quot; style=&quot;text-decoration:none;&quot;&gt;Hermit part 1 [web]&lt;/a&gt;&lt;/h3&gt;
@@ -448,7 +448,7 @@ Hint 2: The port you are looking for has been forwarded to 8087.&lt;/p&gt;
 
 &lt;p&gt;My first impression was that this challenge may be out of my league. Initially, I thought there suppose to be a website running behind this ssh interface. So I googled a lot of random stuff like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssh tunnel&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssh proxy&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssh firewall&lt;/code&gt; etc … Well, that was a fruitless few hours. People were solving it with a much better success rate. I read over the challenge statement again after a break. And that’s when the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hermit - Part2&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Part2&lt;/code&gt; caught my eyes. I began to look at the challenge in a proper way.&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;Task 1: Get access to the server using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssh&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Task 1: Get an access to the server using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssh&lt;/code&gt;.&lt;/li&gt;
   &lt;li&gt;Task 2: Find the flag or access the local web server running inside the server.&lt;br /&gt;
 And most importantly, I realized that somehow I could use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hermit&lt;/code&gt; part1 vulnerability to solve the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hermit&lt;/code&gt; part2 challenge. Time to visit back to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hermit&lt;/code&gt; one.&lt;/li&gt;
 &lt;/ul&gt;
@@ -532,9 +532,9 @@ UMASS&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;a_test_of_integrity&lt;span c
  
  <entry>
    <title>Break the syntax</title>
-   <link href="http://0.0.0.0:4000/2021/03/14/break-the-syntax"/>
+   <link href="mediocreone.com/2021/03/14/break-the-syntax"/>
    <updated>2021-03-14T00:00:00+00:00</updated>
-   <id>http://0.0.0.0:4000/2021/03/14/break-the-syntax</id>
+   <id>mediocreone.com/2021/03/14/break-the-syntax</id>
    <content type="html">&lt;p&gt;It’s has been a while since I played CTF games. Anyway, I share my struggles as an amateur player.&lt;/p&gt;
 
 &lt;h3 id=&quot;1-web-challenge---never-gonna-give-you-flag&quot;&gt;1. Web challenge - Never gonna give you flag&lt;/h3&gt;
@@ -766,9 +766,9 @@ By luck, Firefox saved the day. Chrome was not showing the hint. &lt;code class=
  
  <entry>
    <title>Why this blog exists?</title>
-   <link href="http://0.0.0.0:4000/2020/10/15/why-this-blog-exists"/>
+   <link href="mediocreone.com/2020/10/15/why-this-blog-exists"/>
    <updated>2020-10-15T00:00:00+00:00</updated>
-   <id>http://0.0.0.0:4000/2020/10/15/why-this-blog-exists</id>
+   <id>mediocreone.com/2020/10/15/why-this-blog-exists</id>
    <content type="html">&lt;p&gt;Well, some of my today’s work has inspired by &lt;a href=&quot;https://fuckyousunday.com&quot;&gt;Lucas Kostka&lt;/a&gt;.&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Purchase a cheap domain&lt;/li&gt;
