@@ -2,11 +2,11 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>mediocreone.com/about</loc>
-<lastmod>2021-03-31T13:40:36+00:00</lastmod>
+<lastmod>2021-04-02T14:01:45+00:00</lastmod>
 </url>
 <url>
 <loc>mediocreone.com/search</loc>
-<lastmod>2021-03-31T13:40:36+00:00</lastmod>
+<lastmod>2021-04-02T14:01:45+00:00</lastmod>
 </url>
 <url>
 <loc>mediocreone.com/2020/10/15/why-this-blog-exists</loc>
@@ -19,6 +19,10 @@
 <url>
 <loc>mediocreone.com/2021/03/29/umass-ctf-2021</loc>
 <lastmod>2021-03-29T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>mediocreone.com/2021/04/02/foobar-ctf-2021</loc>
+<lastmod>2021-04-02T00:00:00+00:00</lastmod>
 </url>
 <url>
 <loc>mediocreone.com/</loc>
@@ -52,6 +56,12 @@
 </url>
 <url>
 <loc>mediocreone.com/tag/Linux%20privilege%20escalation/</loc>
+</url>
+<url>
+<loc>mediocreone.com/tag/C%23%20decompiler/</loc>
+</url>
+<url>
+<loc>mediocreone.com/tag/reverse%20engineering/</loc>
 </url>
 <url>
 <loc>mediocreone.com/assets/img/umass/fails/chicken.pdf</loc>

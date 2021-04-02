@@ -2,6 +2,17 @@
   
     {
 
+      "title"    : "FooBar CTF 2021 notes",
+      "url"      : "/2021/04/02/foobar-ctf-2021",
+      "category" : "",
+      "tags"     : "CTF, C# decompiler, reverse engineering",
+      "date"     : "2021-04-02 00:00:00 +0000",
+      "description" : "FooBar CTF 2021 notes"
+
+    } ,
+  
+    {
+
       "title"    : "UMass CTF 2021 notes",
       "url"      : "/2021/03/29/umass-ctf-2021",
       "category" : "",
