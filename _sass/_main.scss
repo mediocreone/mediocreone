@@ -248,3 +248,13 @@ figcaption {
   position: fixed;
   bottom: 18px;
 }
+
+.language-nasm .highlight .err {
+  color: inherit;
+  background-color: inherit;
+}
+
+.language-bash .highlight .err {
+  color: inherit;
+  background-color: inherit;
+}
