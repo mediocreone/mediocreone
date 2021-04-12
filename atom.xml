@@ -4,13 +4,638 @@
  <title>Just a blog</title>
  <link href="mediocreone.com/atom.xml" rel="self"/>
  <link href="mediocreone.com/"/>
- <updated>2021-04-02T14:01:45+00:00</updated>
+ <updated>2021-04-12T14:30:54+00:00</updated>
  <id>mediocreone.com</id>
  <author>
    <name>mediocre_one</name>
    <email>one@mediocreone.com</email>
  </author>
 
+ 
+ <entry>
+   <title>RITSEC CTF 2021 notes</title>
+   <link href="mediocreone.com/2021/04/12/ritsec-ctf-2021"/>
+   <updated>2021-04-12T00:00:00+00:00</updated>
+   <id>mediocreone.com/2021/04/12/ritsec-ctf-2021</id>
+   <content type="html">&lt;blockquote&gt;
+  &lt;p&gt;RITSEC CTF 2021 is a security-focused competition that features the following categories: Bin, OSINT, PWN, Crypto, Forensics, Steganography, and Web. We welcome beginners and more advanced security friends! There will be three brackets: RIT students, other college students, and everyone else.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;1-snek-revbin&quot;&gt;1. &lt;a id=&quot;snek&quot; style=&quot;text-decoration:none;&quot;&gt;snek [rev/bin]&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The challenge statement:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;No step on snek&lt;br /&gt;
+Author: knif3&lt;br /&gt;
+File: &lt;a href=&quot;/assets/img/ritsec/snek&quot;&gt;snek&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;file snek &lt;span class=&quot;c&quot;&gt;# what is it?&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;snek: python 3.7 byte-compiled
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Google: “decompile python 3.7 byte compiled” =&amp;gt; &lt;a href=&quot;https://pypi.org/project/uncompyle6/&quot;&gt;https://pypi.org/project/uncompyle6/&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;uncompyle6 snek
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# file snek
+# path snek must point to a Python source that can be compiled, or Python bytecode (.pyc, .pyo)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mv &lt;/span&gt;snek snek.pyc &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; uncompyle6 snek.pyc &lt;span class=&quot;c&quot;&gt;# rename it and try again.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# uncompyle6 ...
+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
+Written for RITSEC CTF 2021
+Author: knif3
+Flag: RITSEC{}
+TODO: Finish this challenge
+&quot;&quot;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;password&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;decrypt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;97&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;98&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;99&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;101&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;102&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;103&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;104&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;105&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;106&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;107&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;108&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;109&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;110&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;111&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;112&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;113&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;114&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;115&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;116&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;117&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;118&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;119&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;120&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;121&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;122&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;65&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;66&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;67&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;68&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;69&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;70&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;71&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;72&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;73&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;74&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;75&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;76&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;77&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;78&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;79&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;81&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;82&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;83&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;84&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;85&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;86&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;87&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;88&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;89&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;90&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;95&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;82&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;83&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;97&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;108&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;108&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;95&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;104&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;105&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;36&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;36&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;95&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;97&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;110&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;95&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;110&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;48&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;95&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;98&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;105&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;116&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;51&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;125&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__eq__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;other&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;password&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;bytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;decrypt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'!flag'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Enter my name: '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'IS_THIS_THE_FLAG??'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'NOPE'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'WRONG'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ python3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;chr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;97&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;98&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;99&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;101&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;102&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;103&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;104&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;105&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;106&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;107&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;108&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;109&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;110&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;111&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;112&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;113&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;114&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;115&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;116&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;117&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;118&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;119&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;120&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;121&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;122&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;65&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;66&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;67&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;68&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;69&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;70&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;71&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;72&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;73&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;74&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;75&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;76&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;77&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;78&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;79&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;81&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;82&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;83&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;84&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;85&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;86&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;87&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;88&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;89&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;90&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;95&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;82&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;83&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;97&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;108&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;108&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;95&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;104&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;105&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;36&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;36&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;95&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;97&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;110&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;95&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;110&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;48&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;95&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;98&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;105&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;116&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;51&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;125&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]])&lt;/span&gt;
+
+&lt;span class=&quot;s&quot;&gt;'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_RS{all_hi$$_and_n0_bit3}'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;2-dababyweb-web&quot;&gt;2. &lt;a id=&quot;dababyweb&quot; style=&quot;text-decoration:none;&quot;&gt;DababyWeb [web]&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The challenge statement:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Dababy wanted to share a message, but he seemed to put it too high up…&lt;br /&gt;
+34.72.118.158:6284&lt;br /&gt;
+Author: Darkfowl&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/ritsec/dababy/index.png&quot; alt=&quot;Landing page&quot; /&gt;
+&lt;img src=&quot;/assets/img/ritsec/dababy/fun1.png&quot; alt=&quot;Fun1 page&quot; /&gt;
+&lt;img src=&quot;/assets/img/ritsec/dababy/test.png&quot; alt=&quot;Testing&quot; /&gt;
+Google: “PHP local file inclusion cheat sheet” =&amp;gt; &lt;a href=&quot;https://highon.coffee/blog/lfi-cheat-sheet/&quot;&gt;https://highon.coffee/blog/lfi-cheat-sheet/&lt;/a&gt;. 
+Am I feeling lucky? &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;file=./flag.txt&lt;/code&gt; =&amp;gt; no, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;file=./../flag.txt&lt;/code&gt;. =&amp;gt; yes &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RS{J3TS0N_M4D3_4N0TH3R_0N3}&lt;/code&gt;. The proper solution seems to be published &lt;a href=&quot;https://ctftime.org/writeup/27226&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;3-robots-web&quot;&gt;3. &lt;a id=&quot;robots&quot; style=&quot;text-decoration:none;&quot;&gt;Robots [web]&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The challenge statement:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Robots are taking over. Find out more.&lt;br /&gt;
+34.69.61.54:5247&lt;br /&gt;
+Author: f1rehaz4rd&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/ritsec/robots/index.png&quot; alt=&quot;Landing page&quot; /&gt;
+&lt;img src=&quot;/assets/img/ritsec/robots/robots.png&quot; alt=&quot;Robots.txt&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;UlN7UjBib3RzX2FyM19iNGR9 | &lt;span class=&quot;nb&quot;&gt;base64&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;RS{R0bots_ar3_b4d}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;4-sessions-web&quot;&gt;4. &lt;a id=&quot;sessions&quot; style=&quot;text-decoration:none;&quot;&gt;Sessions [web]&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The challenge statement:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Find the flag.&lt;br /&gt;
+http://34.69.61.54:4777&lt;br /&gt;
+Author: f1rehaz4rd&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/ritsec/sessions/index.png&quot; alt=&quot;Landing page&quot; /&gt;
+&lt;img src=&quot;/assets/img/ritsec/sessions/hint.png&quot; alt=&quot;Login credential hint&quot; /&gt;
+&lt;img src=&quot;/assets/img/ritsec/sessions/session.png&quot; alt=&quot;Cookie&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;UlN7MG5seV9PbmVfczNzc2lvbl90b2szbn0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;base64&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;RS{0nly_One_s3ssion_tok3n}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;5-1597-forensics&quot;&gt;5. &lt;a id=&quot;1597&quot; style=&quot;text-decoration:none;&quot;&gt;1597 [forensics]&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The challenge statement:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;… as in https://xkcd.com/1597/&lt;br /&gt;
+http://git.ritsec.club:7000/1597.git/&lt;br /&gt;
+Author: knif3&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone http://git.ritsec.club:7000/1597.git/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/ritsec/1597/extensions.png&quot; alt=&quot;Git extensions&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;6-inception-ctf-dream-1-forensics&quot;&gt;6. &lt;a id=&quot;dream&quot; style=&quot;text-decoration:none;&quot;&gt;Inception CTF: Dream 1 [forensics]&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The challenge statement:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The purpose of this CTF challenge is to identify common methods of hiding malicious files and code. In most cases adversaries will attempt&lt;br /&gt;
+to evade defenses in many cases by masquerading, hiding files, and more. There are five directories like the five levels in the movie&lt;br /&gt;
+Inception: Reality - Van Chase - The Hotel - Snow Fortress - Limbo. You will find one flag in each of the levels, that flag will also&lt;br /&gt;
+be the password to extract the next directory. Requirements: • You must have 7zip installed • Drop the InceptionCTF.7z on the Desktop as 
+“InceptionCTF” • Use the option “Extract to “name of directory” for the CTF to function properly Missing either of the above may result&lt;br /&gt;
+in complications which may cause issues when attempting to find flags. NOTE: The flag format is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RITSEC{}&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Dream 1: We have to get to their subconscious first, look for a hidden text file within the directory “Reality” this flag will unlock the next.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;We would like to thank our sponsor @SRA for contributing this challenge!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;File: &lt;a href=&quot;/assets/img/ritsec/dream/InceptionCTFRITSEC.7z&quot;&gt;InceptionCTFRITSEC.7z&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/ritsec/dream/reality.png&quot; alt=&quot;Reality.7z&quot; /&gt;&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# reverse the string with python3&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;python3 &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'print(&quot;{dnalmaerD}CESTIR&quot;[::-1])'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;RITSEC}Dreamland{
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-posh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# change directory&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Desktop\InceptionCTF&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# make 7z runnable from cmd&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C:\Program&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Files\7-Zip\&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# extract `Reality.7z` to `Reality` folder&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Reality.7z&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-oReality&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;7-Zip 19.00 (x64) : Copyright (c) 1999-2018 Igor Pavlov : 2019-02-21 ...
+Extracting archive: Reality.7z, Everything is Ok, Files: 2 ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-posh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# change dir to `Reality`&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Reality&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# extract `VanChase.7z` to `VanChase` folder using `Dreamland` password.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;VanChase.7z&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-oVanChase&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-pDreamland&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;7-Zip 19.00 (x64) : Copyright (c) 1999-2018 Igor Pavlov : 2019-02-21 ...
+Extracting archive: VanChase.7z, Everything is Ok, Files: 3 ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/ritsec/dream/vanchase.png&quot; alt=&quot;VanChase.7z&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;python3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;bytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fromhex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'52 49 54 53 45 43 7b 57 61 74 65 72 55 6e 64 65 72 54 68 65 42 72 69 64 67 65 7d'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;decode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;RITSEC{WaterUnderTheBridge}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-posh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# set the correct password for the `VanChase\Kick.ps1` script.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set-alias&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;laylow&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ProgramFiles&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;\7-Zip\7z.exe&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$7zf&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;TheHotel.7z&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$7zp&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;WaterUnderTheBridge&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# &amp;lt;---- Enter Password inbetween the Double Qoutes&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$7zo&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;-aoa&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;laylow&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$7zf&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;-p&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$7zp&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$7zo&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Start-Sleep&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;New-Item&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-Path&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;userprofile&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;\Desktop\InceptionCTF\Reality\VanChase\&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-Name&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;TheHotel&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-ItemType&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;directory&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Start-Sleep&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Move-Item&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-Path&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;userprofile&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;\Desktop\InceptionCTF\Reality\VanChase\ThePointMan.txt&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-Destination&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;userprofile&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;\Desktop\InceptionCTF\Reality\VanChase\TheHotel\ThePointMan.txt&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Move-Item&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-Path&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;userprofile&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;\Desktop\InceptionCTF\Reality\VanChase\&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;‎&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-Destination&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;userprofile&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;\Desktop\InceptionCTF\Reality\VanChase\TheHotel\&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;‎&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Move-Item&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-Path&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;userprofile&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;\Desktop\InceptionCTF\Reality\VanChase\SnowFortress.7z&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-Destination&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;userprofile&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;\Desktop\InceptionCTF\Reality\VanChase\TheHotel\SnowFortress.7z&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Start-Sleep&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;userprofile&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;\Desktop\InceptionCTF\Reality\VanChase\TheHotel\&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cmd.exe&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;/c&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;‎&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ThePointMan.txt:&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;‎&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Remove-Item&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-Path&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;userprofile&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;\Desktop\InceptionCTF\Reality\VanChase\TheHotel\&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;‎&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-posh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# change dir to `Vanchase`&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;VanChase&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# run the `Kick.ps1` script&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;powershell&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-executionpolicy&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bypass&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-File&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;\Kicks.ps1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;7-Zip 19.00 (x64) : Copyright (c) 1999-2018 Igor Pavlov : 2019-02-21 ...
+Extracting archive: VanChase.7z, Everything is Ok, Files: 3 ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The content of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TheHotel\ThePointMan.txt&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Q3JlYXRlIGEgbWF6ZSBpbiB0d28gbWludXRlcyB0aGF0IHRha2VzIG1lIG9uZSBtdW5pdGUgdG8gc29sdmUuIA==
+
+59 6f 75 27 72 65 20 77 61 69 74 69 6e 67 20 66 6f 72 20 61 20 74 72 61 69 6e 2c 20 61 20 74 72 61 69 6e 20 74 68 61 74 20 77 69 6c 6c 20 74 61 6b 65 20 79 6f 75 20 66 61 72 20 61 77 61 79 2e 20 59 6f 75 20 6b 6e 6f 77 20 77 68 65 72 65 20 79 6f 75 20 68 6f 70 65 20 74 68 69 73 20 74 72 61 69 6e 20 77 69 6c 6c 20 74 61 6b 65 20 79 6f 75 2c 20 62 75 74 20 79 6f 75 20 63 61 6e 27 74 20 62 65 20 73 75 72 65 2e 20 62 75 74 20 69 74 20 64 6f 65 73 6e 27 74 20 6d 61 74 74 65 72 20 2d 20 62 65 63 61 75 73 65 20 77 65 27 6c 6c 20 62 65 20 74 6f 67 65 74 68 65 72 2e 20
+
+|JP.HPVK.Q.G@.DCWDLA.QJ.AW@DH.GLBB@W	.aDWILKB. BXOR 25
+
+Gung znal qernzf jvguva qernzf vf gbb hafgnoyr!
+
+--. ..- .-.
+..-. .-. .-. --.-
+--. ..- -. --.
+.--- .-.
+-.-. -.-- -. .- --. .-. --.-
+...- .-
+--. ..- ...- ..-.
+--.. -. .- .----. ..-.
+--.. ...- .- --.-
+--.. -. .-..
+.--. ..- -. .- - .-.
+.-. .. .-. . .-.. --. ..- ...- .- - .-.-.-
+
+No place for a tourist in this job.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;I tried to decode all of these, soon I realized there was no point in that. I think the author may or may not have trolled us.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/ritsec/dream/hotel.png&quot; alt=&quot;TheHotel.7z&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;NTIgNDkgNTQgNTMgNDUgNDMgN2IgNDYgNDAgMjEgMjEgNjkgNmUgNjcgNDUgNmMgNjUgNzYgNDAgNzQgNmYgNzIgN2Q&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;base64&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;52 49 54 53 45 43 7b 46 40 21 21 69 6e 67 45 6c 65 76 40 74 6f 72 7d
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;python3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;bytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fromhex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'52 49 54 53 45 43 7b 46 40 21 21 69 6e 67 45 6c 65 76 40 74 6f 72 7d'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;decode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;RITSEC{F@!!ingElev@tor}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-posh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# change dir to `TheHotel` folder&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cd&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;TheHotel&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;# extract `SnowFortress.7z` to `SnowFortress` folder using `F@!!ingElev@tor` password.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;SnowFortress.7z&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-oSnowFortress&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-pF&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ingElev&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tor&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;7-Zip 19.00 (x64) : Copyright (c) 1999-2018 Igor Pavlov : 2019-02-21 ...
+Extracting archive: VanChase.7z, Everything is Ok, Files: 2 ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/ritsec/dream/snowfortress.png&quot; alt=&quot;SnowFortress.7z&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This app seems to display a lot of gibberish text mostly. But the bottom part of it has few interesting lines.&lt;/p&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;...
+Building Dreams....
+
+-.. .-. . .- -- ... ..-. . . .-.. .-. . .- .-.. .-- .... . -. .-- . .----. .-. . .. -. - .... . -- .-.-.- 
+.. - .----. ... --- -. .-.. -.-- .-- .... . -. .-- . .-- .- -.- . ..- .--. - .... .- - .-- . .-. . .- .-.. 
+.. --.. . ... --- -- . - .... .. -. --. .-- .- ... .- -.-. - ..- .- .-.. .-.. -.-- ... - .-. .- -. --. . 
+.-.-.- .-. .. - ... . -.-. -...- -.. .. ...- . .-. ... .. --- -. 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/ritsec/dream/morse.png&quot; alt=&quot;Morse code decoded&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# change dir to `SnowFortress` folder
+&amp;gt; cd SnowFortress
+
+# extract `Limbo.7z` to `Limbo` folder using `DIVERSION` password
+&amp;gt; 7z e Limbo.7z -oLimbo -pDIVERSION
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Limbo&lt;/code&gt; folder contained the final image &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;inception.jpg&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/ritsec/dream/inception.jpg&quot; alt=&quot;Inception&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;strings &lt;span class=&quot;nt&quot;&gt;-n10&lt;/span&gt; inception.jpg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;++-+-+++-+--+++-2+--77-+++-+-+---+-7+7-+7+++++7+++
+6 UklUU0VDezUyODQ5MX0g
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;UklUU0VDezUyODQ5MX0g | &lt;span class=&quot;nb&quot;&gt;base64&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;RITSEC{528491}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;I submitted the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RITSEC{528491}&lt;/code&gt; flag for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Inception CTF: Dream 1&lt;/code&gt; challenge about a dozen times. I thought it should be the correct one. Soon I realized that I have done the whole series.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Inception CTF: Dream 1 [forensics] ~ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RITSEC}Dreamland{&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Inception CTF: Dream 2 [forensics] ~ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RITSEC{WaterUnderTheBridge}&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Inception CTF: Dream 3 [forensics] ~ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RITSEC{F@!!ingElev@tor}&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Inception CTF: Dream 4 [stego] ~ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RITSEC=DIVERSION&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Inception CTF: Dream 5 [stego] ~ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RITSEC{528491}&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;7-parcel-forensics&quot;&gt;7. &lt;a id=&quot;parcel&quot; style=&quot;text-decoration:none;&quot;&gt;Parcel [forensics]&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The challenge statement:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;That’s a lot of magick&lt;br /&gt;
+Author: knif3&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;File: &lt;a href=&quot;/assets/img/ritsec/Parcel&quot;&gt;Parcel&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;file Parcel
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Parcel: gzip compressed data, from Unix, original size modulo 2^32 759456
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;gzip&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; Parcel
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gzip: Parcel: unknown suffix -- ignored
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mv &lt;/span&gt;Parcel Parcel.gz &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;gzip&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; Parcel.gz
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;file Parcel
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Parcel: multipart/mixed; boundary=&quot;===============6501672606206171874==&quot;, ASCII text, with very long lines
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/ritsec/parcel.png&quot; alt=&quot;Parcel content&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Parcel&lt;/code&gt; file contained lots of base64 encoded image strings. I converted around 18 or so images using an online &lt;a href=&quot;https://codebeautify.org/base64-to-image-converter&quot;&gt;base64 to image&lt;/a&gt; service. The images in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parcel&lt;/code&gt; turned out to be a picture puzzle. And yet another one of my fine art piece demonstration:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/ritsec/puzzle.png&quot; alt=&quot;Parcel puzzle&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;8-revision-misc&quot;&gt;8. &lt;a id=&quot;revision&quot; style=&quot;text-decoration:none;&quot;&gt;Revision [misc]&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The challenge statement:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;They aren’t necessarily obvious but are helpful to know.&lt;br /&gt;
+http://git.ritsec.club:7000/Revision.git/&lt;br /&gt;
+Author: knif3&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone http://git.ritsec.club:7000/Revision.git/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/ritsec/revision/r.png&quot; alt=&quot;R&quot; /&gt;
+&lt;img src=&quot;/assets/img/ritsec/revision/s.png&quot; alt=&quot;S&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Well, we need to check the repo commit by commit for a while. That I can do :) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RS{I_h0p3_y0u_scr1pted_th0s3_git_c0ms}&lt;/code&gt;. ~ Yeah, me too.&lt;/p&gt;
+
+&lt;h3 id=&quot;9-blob-forensics&quot;&gt;9. &lt;a id=&quot;blob&quot; style=&quot;text-decoration:none;&quot;&gt;Blob [forensics]&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The challenge statement:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Ha. Blob. Did you get the reference?&lt;br /&gt;
+http://git.ritsec.club:7000/blob.git/&lt;br /&gt;
+Author: knif3&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone http://git.ritsec.club:7000/blob.git/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/ritsec/blob.png&quot; alt=&quot;blob repo&quot; /&gt;
+I found nothing useful from the git commit history.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# change dir to `blob`&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;blob
+
+&lt;span class=&quot;c&quot;&gt;# list git tags&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git tag &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# let's see what is the `flag` tag.&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git show flag
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;RS{refs_can_b3_secret_too}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;10-please-click-all-the-things-1-begineersritsechtml-forensics&quot;&gt;10. &lt;a id=&quot;things1&quot; style=&quot;text-decoration:none;&quot;&gt;Please Click All the Things 1: BegineersRITSEC.html [forensics]&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The challenge statement:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Note: this challenge is the start of a series of challenges. The purpose of this CTF challenge is to bring real world phishing attachments to the challengers and attempt to find flags (previously executables or malicious domains) within the macros. This is often a process used in IR teams and becomes an extremely valuable skill. In this challenge we’ve brought to the table a malicious html file, GandCrab/Ursnif sample, and a IceID/Bokbot sample. We’ve rewritten the code to not contain malicious execution however system changes may still occur when executing, also some of the functionalities have been snipped and will likely not expose itself via dynamic analysis.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Outlook helps, with proper licensing to access necessary features&lt;/li&gt;
+    &lt;li&gt;Otherwise oledump or similar would also help but isn’t necessary&lt;/li&gt;
+    &lt;li&gt;CyberChef is the ideal tool to use for decoding&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Part 1: Start with the HTML file and let’s move our way up, open and or inspect the HTML file provide in the message file. There is only one flag in this document.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;This challenge is brought to you by SRA&lt;br /&gt;
+File: &lt;a href=&quot;/assets/img/ritsec/Please_Click_All_The_Things.7z&quot;&gt;Please_Click_All_The_Things.7z&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I was not able to download this file in my windows 10. The Microsoft Windows Defender immediately deletes my download. Congratz!&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# download the file into my ubuntu box&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wget &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; check.7z https://mediocreone.com/assets/img/ritsec/Please_Click_All_The_Things.7z
+
+&lt;span class=&quot;c&quot;&gt;# my box did not have the 7z&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;p7zip-full &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# unzip via 7z to `check` folder&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;7z x check.7z &lt;span class=&quot;nt&quot;&gt;-ocheck&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# check downloaded file&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;check &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; file Please&lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;Click&lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;all&lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;the&lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;Things.msg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Please Click all the Things.msg: CDFV2 Microsoft Outlook Message
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Google: “python extract attachment from msg file” =&amp;gt; &lt;a href=&quot;https://pypi.org/project/extract-msg/&quot;&gt;https://pypi.org/project/extract-msg/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# rename `Please Click all the Things` to `things` for less annoyence&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;mv &lt;/span&gt;Please&lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;Click&lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;all&lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;the&lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;Things.msg things.msg
+
+&lt;span class=&quot;c&quot;&gt;# extract attachments and list folders&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;python3 &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; extract_msg things.msg &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;'2021-02-25_1658 Please Click all the Things'   things.msg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# renaming the long folder name&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mv &lt;/span&gt;2021-02-25_1658&lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;Please&lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;Click&lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;all&lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;the&lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;Things/ things &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;ls &lt;/span&gt;things
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;BeginnersRITSEC.html  GandCrab_Ursnif_RITSEC.docm  IceID_Bokbot_RITSEC.docm  message.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The content of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;things/message.txt&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;From:
+To: CTF@challengers.com &amp;lt;CTF@challengers.com&amp;gt;
+CC:
+Subject: Please Click all the Things
+Date: Thu, 25 Feb 2021 16:58:00 +0000
+-----------------
+Hey there Challengers,
+
+I’ve attached some malware, please do click them and infect your machines (seriously), wipe your systems after the CTF.
+On a less troll note, for those new to analysis start with the HTML, move to GandCrab, and then if you’re feeling smart try IceID/Bokbot.
+If you feel the need to bang your head please take safety precautions, clear away breakables including computer screens and preferably choose a softer surface to avoid injuries.
+Thanks for contributing to the botnet.
+
+Sincerely,
+CTF Challenge Creators
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The content of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;things/BeginnersRITSEC.html&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;language=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;javascript&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;unescape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;3c%68%74%6d%6c%3e%0a%3c%62%6f%64%79%3e%0a%0a%3c%21%44%4f%43%54%59%50%45%20%68%74%6d%6c%3e%0a%3c%68%74%6d%6c%3e%0a%3c%68%65%61%64%3e%0a%20%20%20%20%3c%74%69%74%6c%65%3e%49%74%73%20%6a%75%73%74%20%61%6e%6f%74%68%65%72%20%66%72%69%65%6e%64%6c%79%20%66%69%6c%65%20%66%72%6f%6d%20%79%6f%75%27%72%65%20%6c%6f%63%61%6c%20%43%54%46%3c%2f%74%69%74%6c%65%3e%0a%20%20%20%20%3c%73%74%79%6c%65%20%74%79%70%65%3d%22%74%65%78%74%2f%63%73%73%22%3e%0a%20%20%20%20%20%20%20%20%68%74%6d%6c%20%7b%0a%20%20%20%20%20%20%20%20%20%20%20%20%68%65%69%67%68%74%3a%20%31%30%30%25%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%77%69%64%74%68%3a%20%31%30%30%25%3b%0a%20%20%20%20%20%20%20%20%7d%0a%0a%20%20%20%20%20%20%20%20%23%66%65%61%74%75%72%65%20%7b%0a%20%20%20%20%20%20%20%20%20%20%20%20%77%69%64%74%68%3a%20%39%38%30%70%78%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%6d%61%72%67%69%6e%3a%20%39%35%70%78%20%61%75%74%6f%20%30%20%61%75%74%6f%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%6f%76%65%72%66%6c%6f%77%3a%20%61%75%74%6f%3b%0a%20%20%20%20%20%20%20%20%7d%0a%0a%20%20%20%20%20%20%20%20%23%63%6f%6e%74%65%6e%74%20%7b%0a%20%20%20%20%20%20%20%20%20%20%20%20%66%6f%6e%74%2d%66%61%6d%69%6c%79%3a%20%22%53%65%67%6f%65%20%55%49%22%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%66%6f%6e%74%2d%77%65%69%67%68%74%3a%20%6e%6f%72%6d%61%6c%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%66%6f%6e%74%2d%73%69%7a%65%3a%20%32%32%70%78%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%63%6f%6c%6f%72%3a%20%23%66%66%66%66%66%66%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%66%6c%6f%61%74%3a%20%6c%65%66%74%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%77%69%64%74%68%3a%20%34%36%30%70%78%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%6d%61%72%67%69%6e%2d%74%6f%70%3a%20%36%38%70%78%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%6d%61%72%67%69%6e%2d%6c%65%66%74%3a%20%30%70%78%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%76%65%72%74%69%63%61%6c%2d%61%6c%69%67%6e%3a%20%6d%69%64%64%6c%65%3b%0a%20%20%20%20%20%20%20%20%7d%0a%0a%20%20%20%20%20%20%20%20%20%20%20%20%23%63%6f%6e%74%65%6e%74%20%68%31%20%7b%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%66%6f%6e%74%2d%66%61%6d%69%6c%79%3a%20%22%53%65%67%6f%65%20%55%49%20%4c%69%67%68%74%22%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%63%6f%6c%6f%72%3a%20%23%66%66%66%66%66%66%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%66%6f%6e%74%2d%77%65%69%67%68%74%3a%20%6e%6f%72%6d%61%6c%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%66%6f%6e%74%2d%73%69%7a%65%3a%20%36%30%70%78%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%6c%69%6e%65%2d%68%65%69%67%68%74%3a%20%34%38%70%74%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%77%69%64%74%68%3a%20%39%38%30%70%78%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%7d%0a%0a%20%20%20%20%20%20%20%20%70%20%61%2c%20%70%20%61%3a%76%69%73%69%74%65%64%2c%20%70%20%61%3a%61%63%74%69%76%65%2c%20%70%20%61%3a%68%6f%76%65%72%20%7b%0a%20%20%20%20%20%20%20%20%20%20%20%20%63%6f%6c%6f%72%3a%20%23%66%66%66%66%66%66%3b%0a%20%20%20%20%20%20%20%20%7d%0a%0a%20%20%20%20%20%20%20%20%23%63%6f%6e%74%65%6e%74%20%61%2e%62%75%74%74%6f%6e%20%7b%0a%20%20%20%20%20%20%20%20%20%20%20%20%62%61%63%6b%67%72%6f%75%6e%64%3a%20%23%30%44%42%43%46%32%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%62%6f%72%64%65%72%3a%20%31%70%78%20%73%6f%6c%69%64%20%23%46%46%46%46%46%46%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%63%6f%6c%6f%72%3a%20%23%46%46%46%46%46%46%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%64%69%73%70%6c%61%79%3a%20%69%6e%6c%69%6e%65%2d%62%6c%6f%63%6b%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%66%6f%6e%74%2d%66%61%6d%69%6c%79%3a%20%53%65%67%6f%65%20%55%49%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%66%6f%6e%74%2d%73%69%7a%65%3a%20%32%34%70%78%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%6c%69%6e%65%2d%68%65%69%67%68%74%3a%20%34%36%70%78%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%6d%61%72%67%69%6e%2d%74%6f%70%3a%20%31%30%70%78%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%70%61%64%64%69%6e%67%3a%20%30%20%31%35%70%78%20%33%70%78%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%74%65%78%74%2d%64%65%63%6f%72%61%74%69%6f%6e%3a%20%6e%6f%6e%65%3b%0a%20%20%20%20%20%20%20%20%7d%0a%0a%20%20%20%20%20%20%20%20%20%20%20%20%23%63%6f%6e%74%65%6e%74%20%61%2e%62%75%74%74%6f%6e%20%69%6d%67%20%7b%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%66%6c%6f%61%74%3a%20%72%69%67%68%74%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%70%61%64%64%69%6e%67%3a%20%31%30%70%78%20%30%20%30%20%31%35%70%78%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%7d%0a%0a%20%20%20%20%20%20%20%20%20%20%20%20%23%63%6f%6e%74%65%6e%74%20%61%2e%62%75%74%74%6f%6e%3a%68%6f%76%65%72%20%7b%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%62%61%63%6b%67%72%6f%75%6e%64%3a%20%23%31%43%37%35%42%43%3b%0a%20%20%20%20%20%20%20%20%20%20%20%20%7d%0a%0a%2f%2a%20%6c%6f%61%64%69%6e%67%20%64%6f%74%73%20%2a%2f%0a%0a%2e%6c%6f%61%64%69%6e%67%3a%61%66%74%65%72%20%7b%0a%20%20%63%6f%6e%74%65%6e%74%3a%20%27%2e%27%3b%0a%20%20%61%6e%69%6d%61%74%69%6f%6e%3a%20%64%6f%74%73%20%31%73%20%73%74%65%70%73%28%35%2c%20%65%6e%64%29%20%69%6e%66%69%6e%69%74%65%7d%0a%0a%40%6b%65%79%66%72%61%6d%65%73%20%64%6f%74%73%20%7b%0a%20%20%30%25%2c%20%32%30%25%20%7b%0a%20%20%20%20%63%6f%6c%6f%72%3a%20%72%67%62%61%28%30%2c%30%2c%30%2c%30%29%3b%0a%20%20%20%20%74%65%78%74%2d%73%68%61%64%6f%77%3a%0a%20%20%20%20%20%20%2e%32%35%65%6d%20%30%20%30%20%72%67%62%61%28%30%2c%30%2c%30%2c%30%29%2c%0a%20%20%20%20%20%20%2e%35%65%6d%20%30%20%30%20%72%67%62%61%28%30%2c%30%2c%30%2c%30%29%3b%7d%0a%20%20%34%30%25%20%7b%0a%20%20%20%20%63%6f%6c%6f%72%3a%20%77%68%69%74%65%3b%0a%20%20%20%20%74%65%78%74%2d%73%68%61%64%6f%77%3a%0a%20%20%20%20%20%20%2e%32%35%65%6d%20%30%20%30%20%72%67%62%61%28%30%2c%30%2c%30%2c%30%29%2c%0a%20%20%20%20%20%20%2e%35%65%6d%20%30%20%30%20%72%67%62%61%28%30%2c%30%2c%30%2c%30%29%3b%7d%0a%20%20%36%30%25%20%7b%0a%20%20%20%20%74%65%78%74%2d%73%68%61%64%6f%77%3a%0a%20%20%20%20%20%20%2e%32%35%65%6d%20%30%20%30%20%77%68%69%74%65%2c%0a%20%20%20%20%20%20%2e%35%65%6d%20%30%20%30%20%72%67%62%61%28%30%2c%30%2c%30%2c%30%29%3b%7d%0a%20%20%38%30%25%2c%20%31%30%30%25%20%7b%0a%20%20%20%20%74%65%78%74%2d%73%68%61%64%6f%77%3a%0a%20%20%20%20%20%20%2e%32%35%65%6d%20%30%20%30%20%77%68%69%74%65%2c%0a%20%20%20%20%20%20%2e%35%65%6d%20%30%20%30%20%77%68%69%74%65%3b%7d%7d%0a%20%20%20%20%3c%2f%73%74%79%6c%65%3e%0a%3c%2f%68%65%61%64%3e%0a%3c%62%6f%64%79%20%62%67%63%6f%6c%6f%72%3d%22%23%30%30%61%62%65%63%22%3e%0a%20%20%20%20%3c%64%69%76%20%69%64%3d%22%66%65%61%74%75%72%65%22%3e%0a%20%20%20%20%20%20%20%20%20%20%20%20%3c%64%69%76%20%69%64%3d%22%63%6f%6e%74%65%6e%74%22%3e%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3c%68%31%20%69%64%3d%22%75%6e%61%76%61%69%6c%61%62%6c%65%22%20%63%6c%61%73%73%3d%22%6c%6f%61%64%69%6e%67%22%3e%54%72%79%20%48%61%72%64%65%72%3c%2f%68%31%3e%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3c%70%20%69%64%3d%22%74%72%79%41%67%61%69%6e%22%20%63%6c%61%73%73%3d%22%6c%6f%61%64%69%6e%67%22%3e%54%68%65%20%44%65%66%65%6e%64%65%72%20%54%68%61%74%20%43%6f%75%6c%64%3c%2f%70%3e%0a%20%20%20%20%20%20%20%20%3c%2f%64%69%76%3e%0a%20%20%20%20%3c%2f%64%69%76%3e%0a%3c%2f%62%6f%64%79%3e%0a%0a%0a%20%20%3c%68%65%61%64%3e%20%0a%3c%66%6c%61%67%3d%22%55%6b%6c%55%55%30%56%44%65%30%67%7a%63%6a%4d%68%64%43%45%6b%66%51%3d%3d%22%3e%0a%3c%2f%62%6f%64%79%3e%0a%20%20%3c%2f%68%74%6d%6c%3e&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The content after decoding it with an online &lt;a href=&quot;https://codebeautify.org/url-decode-string&quot;&gt;URL decoding&lt;/a&gt; service.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;3chtml&amp;gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Its just another friendly file from you're local CTF&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;style &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/css&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;/* MediocreOne note: deleted CSS rules to make life easier */&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/style&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;bgcolor=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;#00abec&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;feature&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;content&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;unavailable&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;loading&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Try Harder&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;tryAgain&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;loading&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;The Defender That Could&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;flag&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;=&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;UklUU0VDe0gzcjMhdCEkfQ=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;=&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;UklUU0VDe0gzcjMhdCEkfQ&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;base64&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;RITSEC{H3r3!t!$}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;11-please-click-all-the-things-2-gandcrab_ursnifhtml-forensics&quot;&gt;11. &lt;a id=&quot;things2&quot; style=&quot;text-decoration:none;&quot;&gt;Please Click All the Things 2: GandCrab_Ursnif.html [forensics]&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The challenge statement:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;GandCrab/Ursnif are dangerous types of campaigns and malware, macros are usually the entry point,&lt;br /&gt;
+see what you can find, there are two flags in this document. Flag1/2&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Author: Brandon Martin&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Google: “python extract macros from dotm” =&amp;gt; &lt;a href=&quot;https://blog.didierstevens.com/programs/oledump-py/&quot;&gt;https://blog.didierstevens.com/programs/oledump-py/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Google: “Github oledump” =&amp;gt; &lt;a href=&quot;https://github.com/DidierStevens/DidierStevensSuite/blob/master/oledump.py&quot;&gt;https://github.com/DidierStevens/DidierStevensSuite/blob/master/oledump.py&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# change dir to `things` folder&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;things
+
+&lt;span class=&quot;c&quot;&gt;# download the `oledump.py`&lt;/span&gt;
+wget https://raw.githubusercontent.com/DidierStevens/DidierStevensSuite/master/oledump.py
+
+&lt;span class=&quot;c&quot;&gt;# analyze the `GandCrab_Ursnif_RITSEC.docm` file&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;python3 oledump.py GandCrab_Ursnif_RITSEC.docm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;A: word/vbaProject.bin
+ A1:       464 'PROJECT'
+ A2:        89 'PROJECTwm'
+ A3: M     975 'VBA/Module1'
+ A4: M    1504 'VBA/Module4'
+ A5: m     938 'VBA/ThisDocument'
+ A6:      3109 'VBA/_VBA_PROJECT'
+ A7:       585 'VBA/dir'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# dump macro at A3&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;python3 oledump.py &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; A3 &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; GandCrab_Ursnif_RITSEC.docm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-vb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Attribute&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;VB_Name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Module1&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;Sub&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;autoopen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;TheDarkSide&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;End&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Sub&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# dump macro at A4&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;python3 oledump.py &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; A4 &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; GandCrab_Ursnif_RITSEC.docm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-vb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Attribute&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;VB_Name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Module4&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;Function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;TheDarkSide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;On&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Error&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Resume&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Next&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;CTF&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ElonMusk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StarWars&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HelloWorld&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Interaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Shell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CleanString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Chewbacca&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TextBox1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;43&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;43&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Mars&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;Select&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Research&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;Case&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;235003991&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;CompetitorSkillz&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;That_of_a_Storm_Troopers_Aim_Research_Pending&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Flag&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RITSEC&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CROS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;PendingResearch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Oct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Date&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;CStr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TimeStamp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;241371097&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PewPew&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Hex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;13775121&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;End&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Select&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;End&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Function&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;At least we seem to land on our first flag &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RITSEC{M@CROS}&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;12-please-click-all-the-things-3-iceid-forensics&quot;&gt;12. &lt;a id=&quot;things3&quot; style=&quot;text-decoration:none;&quot;&gt;Please Click All the Things 3: IceID [forensics]&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The challenge statement:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Stepping it up to IceID/Bokbot, this challenge is like the previous challenge but requires some ability to read and understand coding in addition to some additional decoding skills, there are two flags in this document. (Flag 1/2)&lt;br /&gt;
+Author: Brandon Martin&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# analyze the `IceID_Bokbot_RITSEC.docm` file&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;python3 oledump.py IceID_Bokbot_RITSEC.docm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;A: word/vbaProject.bin
+ A1:       631 'PROJECT'
+ A2:       149 'PROJECTwm'
+ A3:        97 'UserForm1/\x01CompObj'
+ A4:       292 'UserForm1/\x03VBFrame'
+ A5:        90 'UserForm1/f'
+ A6:        72 'UserForm1/o'
+ A7: M    3460 'VBA/Module1'
+ A8: M    1159 'VBA/Module2'
+ A9: M    1622 'VBA/NewMacros'
+A10: m     938 'VBA/ThisDocument'
+A11: M    1571 'VBA/UserForm1'
+A12:      4182 'VBA/_VBA_PROJECT'
+A13:       926 'VBA/dir'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# dump macro at A7&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;python3 oledump.py &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; A7 &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; IceID_Bokbot_RITSEC.docm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-vb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Attribute&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;VB_Name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Module1&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;Public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Const&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;aHVWt&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;As&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;p_:_\_j_v_a_q_b_j_f_\_f_l_f_g_r_z_3_2_\_z_f_u_g_n__r_k_r_&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;Public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Const&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;aqv6tf&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;As&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;EVGFRP{E0GG1ATZ@YP0Q3}&quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;Public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Const&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;a7sVN&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;As&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;_&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;Public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Const&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;asXlUN&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;As&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Integer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;954&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;967&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;Public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;aENoBO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aHu95&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;avuEG8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;FileNumber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FreeFile&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Open&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aHu95&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;For&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Output&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;As&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FileNumber&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Print&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FileNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Spc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;413&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;456&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Print&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FileNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;avuEG8&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Print&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FileNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Spc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;413&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;456&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Close&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FileNumber&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;End&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Function&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;Sub&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;aUoaN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;adDgz&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;at09Aq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;FileCopy&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;adDgz&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;at09Aq&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;End&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Sub&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;Function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;anPr56&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aCl8i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;anPr56&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aCl8i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;End&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Function&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;Function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;a79yA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aO0h5k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;a79yA&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aO0h5k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;12324&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;474&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;End&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Function&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;Function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;aHScDO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aoza8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;As&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;Dim&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;alc6yS&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;As&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Long&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;Dim&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;a9uRX&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;As&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Integer&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;Dim&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;agyvb&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;As&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Integer&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;For&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alc6yS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;To&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;anPr56&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aoza8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;agyvb&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;aFxdHY&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;VBA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Mid&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aoza8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alc6yS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;a9uRX&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Asc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aFxdHY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;If&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a9uRX&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;And&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a9uRX&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;91&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;Or&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a9uRX&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;96&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;And&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a9uRX&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Then&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;agyvb&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;asXlUN&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;a9uRX&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a9uRX&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;agyvb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;If&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a9uRX&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;97&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;And&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a9uRX&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;83&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Then&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;a9uRX&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a79yA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a9uRX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;ElseIf&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a9uRX&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;65&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Then&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;a9uRX&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a79yA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a9uRX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;End&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;If&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;End&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;If&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Mid&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aoza8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alc6yS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;VBA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Chr&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a9uRX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;Next&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;aHScDO&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aoza8&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;End&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Function&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;From here, the string &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EVGFRP{E0GG1ATZ@YP0Q3}&lt;/code&gt; looked awfully like a flag. I tried a couple of websites and eventually found the correct one.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/ritsec/rot13.png&quot; alt=&quot;Rot13 decode&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt; 
+ 
+ &lt;/p&gt;
+
+&lt;p&gt;Well, there were a lot of cool challenges in this CTF. Those that I spent the most time and did not manage to solve taught me a lot. Thanks to those who organized the event.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>FooBar CTF 2021 notes</title>
@@ -152,7 +777,7 @@ File: &lt;a href=&quot;/assets/img/foobar/childrev.zip&quot;&gt;childrev&lt;/a&g
 
 &lt;p&gt;For this challenge, we received a legit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ELF 64-bit&lt;/code&gt; executable file. Last time when I visit the Underworld I chickened out in a day or two. I only know that there are few powerful tools to deal with this sort of situation, but they all require a fair bit of assembler familiarity. To me, a low-level programming language is a monster under the bed that does magical things in the Underworld where I am afraid to wander. But this time around I was not alone in there. A new friend of mine, from Germany, shed some light into the darkness. He taught me just enough to find the treasure in time.&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;file ./childrev &lt;span class=&quot;c&quot;&gt;# shoe file information&lt;/span&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;file ./childrev &lt;span class=&quot;c&quot;&gt;# show file information&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;childrev: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), statically linked, ...
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -460,7 +1085,7 @@ if all the comparisons pass then we might get something other than 0.&lt;/p&gt;
   &lt;li&gt;Look up the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rdx&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rax&lt;/code&gt; register values while debugging.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;After 33 step-over button clicks, we recovered the flag string to be &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GLUG{x0r_and_l0g1c@l_sh1ft_e@sy_r1gh8??}&lt;/code&gt;. I am sure that there are more elegant or straightforward ways to get it. But I am not there yet. Perhaps, I need play more &lt;a href=&quot;https://en.wikipedia.org/wiki/Shenzhen_I/O&quot;&gt;SHENZHEN I/O&lt;/a&gt; from Zachtronics.&lt;/p&gt;
+&lt;p&gt;After 33 step-over button clicks, we recovered the flag string to be &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GLUG{x0r_and_l0g1c@l_sh1ft_e@sy_r1gh8??}&lt;/code&gt;. I am sure that there are more elegant or straightforward ways to get it. But I am not there yet. Perhaps, I need to play more &lt;a href=&quot;https://en.wikipedia.org/wiki/Shenzhen_I/O&quot;&gt;SHENZHEN I/O&lt;/a&gt; from Zachtronics.&lt;/p&gt;
 
 &lt;hr /&gt;
 

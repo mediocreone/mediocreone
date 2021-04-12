@@ -2,6 +2,17 @@
   
     {
 
+      "title"    : "RITSEC CTF 2021 notes",
+      "url"      : "/2021/04/12/ritsec-ctf-2021",
+      "category" : "",
+      "tags"     : "CTF, decompile python bytecode, PHP LFI, forensics, dotm macro extraction, git challenges",
+      "date"     : "2021-04-12 00:00:00 +0000",
+      "description" : "RITSEC CTF 2021 notes"
+
+    } ,
+  
+    {
+
       "title"    : "FooBar CTF 2021 notes",
       "url"      : "/2021/04/02/foobar-ctf-2021",
       "category" : "",
