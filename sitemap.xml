@@ -2,11 +2,11 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>mediocreone.com/about</loc>
-<lastmod>2021-04-12T14:30:54+00:00</lastmod>
+<lastmod>2022-02-22T10:48:11+00:00</lastmod>
 </url>
 <url>
 <loc>mediocreone.com/search</loc>
-<lastmod>2021-04-12T14:30:54+00:00</lastmod>
+<lastmod>2022-02-22T10:48:11+00:00</lastmod>
 </url>
 <url>
 <loc>mediocreone.com/2020/10/15/why-this-blog-exists</loc>
@@ -27,6 +27,10 @@
 <url>
 <loc>mediocreone.com/2021/04/12/ritsec-ctf-2021</loc>
 <lastmod>2021-04-12T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>mediocreone.com/2022/02/22/cheap-vps-cpu-benchmark</loc>
+<lastmod>2022-02-22T00:00:00+00:00</lastmod>
 </url>
 <url>
 <loc>mediocreone.com/</loc>
@@ -81,6 +85,15 @@
 </url>
 <url>
 <loc>mediocreone.com/tag/git%20challenges/</loc>
+</url>
+<url>
+<loc>mediocreone.com/tag/CPU_crypto_mining/</loc>
+</url>
+<url>
+<loc>mediocreone.com/tag/cheap_VPS/</loc>
+</url>
+<url>
+<loc>mediocreone.com/tag/CPU_benchmark/</loc>
 </url>
 <url>
 <loc>mediocreone.com/assets/img/umass/fails/chicken.pdf</loc>
