@@ -3,20 +3,21 @@
 
   setInterval(() => {
     let delta = (new Date("2055/12/31") - new Date()) / 1000;
-    
+
     const days = delta / 86400 | 0;
-    document.getElementById('days').innerHTML =  days;
+    let expiration =  `${days} `;
     delta -= days * 86400;
 
     const hours = (delta / 3600 | 0) % 24;
-    document.getElementById('hours').innerHTML = format(hours);
+    expiration += format(hours);
     delta -= hours * 3600;
 
     const minutes = (delta / 60 | 0) % 60;
-    document.getElementById('mins').innerHTML = `:${format(minutes)}:`;
+    expiration += `:${format(minutes)}:`;
     delta -= minutes * 60;
 
-    document.getElementById('secs').innerHTML = format((delta % 60) | 0);
+    expiration += format((delta % 60) | 0);
+    document.getElementById('expiry').innerHTML = expiration;
 
   }, 1000);
 
@@ -25,6 +26,6 @@
 <div class="expiration">
   <span class="right1">Expired by:</span></br>
   <span class="right1">
-    <span id="days"></span> <span id="hours"></span><span id="mins"></span><span id="secs"></span>
+    <span id="expiry">00000 00:00:00</span>
   </span>
 </div>

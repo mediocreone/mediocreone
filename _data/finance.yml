@@ -4,14 +4,18 @@ actives:
   - name: device(s)
     value: 1000
   - name: stock(s)
-    value: 2000
+    value: 2300
   - name: server
     value: 100
   - name: cash
-    value: 100
+    value: 600
 
 passives:
   - name: debt
     value: 4000
   - name: loan
     value: 0
+
+date:
+  - name: updated
+    value: 05-12-2021

@@ -45,6 +45,26 @@ pre {
   margin: 1rem 0;
 }
 
+.post table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  
+}
+
+.post tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.post th {
+  border: 1px solid #888;
+  background-color: #bbb;
+  padding: 3px 6px !important;
+}
+
+.post td {
+  border: 1px solid #bbb;
+  padding: 3px 6px !important;
+}
+
 .post h2:first-child,
 .project h2:first-child,
 .photo h2:first-child {
